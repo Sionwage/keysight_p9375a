@@ -5,6 +5,10 @@ build/
 dist/
 wheels/
 *.egg-info
+*checkpoint.*
 
 # Virtual environments
 .venv
+
+# uv 
+uv.lock
