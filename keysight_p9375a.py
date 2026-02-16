@@ -45,25 +45,13 @@ class KeysightP9375A_Channels(Channel):
         cast=int,
     )
 
-
-class KeysightP9375A(SCPIMixin, Instrument):
-    """
-    Minimum viable code to perform TDR Measurement
-    """
-
-    def __init__(self, adapter, name="VNA", **kwargs):
-        super().__init__(adapter, name, **kwargs)
-        self.reset()
-
-    channels = Instrument.MultiChannelCreator(KeysightP9375A_Channels, [1])
-
     # Get / Set RF Power
     # SOURce<cnum>:POWer<port>[:LEVel][:IMMediate][:AMPLitude] <num>, [src]
 
     # Get / Set IFBW
     IFBW = Instrument.control(
-        "SENS1:BAND?",
-        "SENS1:BAND %d",
+        "SENS{ch}:BAND?",
+        "SENS{ch}:BAND %d",
         """
         Number of frequency points measured per sweep (int).
         """,
@@ -75,8 +63,8 @@ class KeysightP9375A(SCPIMixin, Instrument):
     # Get / Set Averaging Count
     # SENSe<cnum>:AVERage:COUNt <num>
     averaging_count = Instrument.control(
-        "SENS1:AVER:COUN?",
-        "SENS1:AVER:COUN %d",
+        "SENS{ch}:AVER:COUN?",
+        "SENS{ch}:AVER:COUN %d",
         """
         Number of averages (int).
         """,
@@ -86,8 +74,8 @@ class KeysightP9375A(SCPIMixin, Instrument):
     # Get / Set Averaging Enabled
     # SENSe<cnum>:AVERage[:STATe] <ON | OFF>
     averaging_enabled = Instrument.control(
-        "SENS1:AVER:STAT?",
-        "SENS1:AVER:STAT %d",
+        "SENS{ch}:AVER:STAT?",
+        "SENS{ch}:AVER:STAT %d",
         """
         Averaging enabled state (bool).
         """,
@@ -96,8 +84,8 @@ class KeysightP9375A(SCPIMixin, Instrument):
 
     # SENSe<cnum>:AVERage:MODE <char>
     averaging_mode = Instrument.control(
-        "SENS1:AVER:MODE?",
-        "SENS1:AVER:MODE %s",
+        "SENS{ch}:AVER:MODE?",
+        "SENS{ch}:AVER:MODE %s",
         """
         Averaging mode to be used (str).
         """,
@@ -110,8 +98,8 @@ class KeysightP9375A(SCPIMixin, Instrument):
     # Get / Set Measurement Dwell time
     # SENSe<cnum>:SWEep:DWELl <num>
     dwell_time = Instrument.control(
-        "SENS1:SWE:DWELL?",
-        "SENS1:SWE:DWELL %d",
+        "SENS{ch}:SWE:DWELL?",
+        "SENS{ch}:SWE:DWELL %d",
         """
         Dwell time per point measurement (float).
         """,
@@ -125,12 +113,22 @@ class KeysightP9375A(SCPIMixin, Instrument):
     # Correction state
     # SENSe<cnum>:CORRection[:STATe] <ON | OFF>
     correction_enabled = Instrument.control(
-        "SENS1:CORR:STAT?",
-        "SENS1:CORR:STAT %d",
+        "SENS{ch}:CORR:STAT?",
+        "SENS{ch}:CORR:STAT %d",
         """
         Correction enabled state (bool).
         """,
         cast=bool,
     )
 
-    pass
+
+class KeysightP9375A(SCPIMixin, Instrument):
+    """
+    Minimum viable code to perform TDR Measurement
+    """
+
+    def __init__(self, adapter, name="VNA", **kwargs):
+        super().__init__(adapter, name, **kwargs)
+        self.reset()
+
+    channels = Instrument.MultiChannelCreator(KeysightP9375A_Channels, [1])
