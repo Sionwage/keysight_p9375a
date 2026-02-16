@@ -16,10 +16,11 @@ Todo List
 - [x] Add pyvisa, pyvisa-py, pymeasure, ipykernel to uv project `uv add pyvisa pyvisa-py numpy scikit-rf pymeasure ipykernel`
 - [x] Add venv to jupyter kernels - `uv run ipython kernel install --user --name=keysight_p9375a_venv`
 - [ ] Create/move essential commands to Channels class
-    - [ ] IFBW
-    - [ ] Points
-    - [ ] Averaging
-    - [ ] Averaging Enabled
+    - [x] IFBW
+    - [x] Points
+    - [x] Averaging
+    - [x] Averaging Enabled
+    - [ ] Averaging Mode - Need docstring updated w/ options
     - [ ] Triggering
     - [ ] Measurement
     - [ ] Format
@@ -29,4 +30,5 @@ Todo List
     - [ ] Read S-Parameter (to nparray)
     - [ ] Create S-Parameter (form skrf.touchstone)
 - [ ] Create notebook to run though and test module
-- [ ]
+- [ ] Add traces class to Instrument
+- [ ] Create function to add or remove channels and traces
