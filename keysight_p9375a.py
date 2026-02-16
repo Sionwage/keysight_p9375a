@@ -59,7 +59,7 @@ class KeysightP9375A(SCPIMixin, Instrument):
         self.reset()
 
 
-    channels = Insturment.MultiChannelCreator(KeysightP9375A_Channels, [1])
+    channels = Instrument.MultiChannelCreator(KeysightP9375A_Channels, [1])
 
     # Get / Set RF Power
     # SOURce<cnum>:POWer<port>[:LEVel][:IMMediate][:AMPLitude] <num>, [src]
