@@ -26,7 +26,6 @@ import logging
 
 from pymeasure.instruments import Channel, Instrument
 from pymeasure.instruments.generic_types import SCPIMixin
-from pymeasure.instruments.validators import strict_range, strict_discrete_set, strict_discrete_range
 
 log = logging.getLogger(__name__)
 log.addHandler(logging.NullHandler())
@@ -47,8 +46,6 @@ class KeysightP9375A_Channels(Channel):
     )
 
 
-
-
 class KeysightP9375A(SCPIMixin, Instrument):
     """
     Minimum viable code to perform TDR Measurement
@@ -58,12 +55,10 @@ class KeysightP9375A(SCPIMixin, Instrument):
         super().__init__(adapter, name, **kwargs)
         self.reset()
 
-
     channels = Instrument.MultiChannelCreator(KeysightP9375A_Channels, [1])
 
     # Get / Set RF Power
     # SOURce<cnum>:POWer<port>[:LEVel][:IMMediate][:AMPLitude] <num>, [src]
-    
 
     # Get / Set IFBW
     IFBW = Instrument.control(

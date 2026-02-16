@@ -29,4 +29,4 @@ Todo List
     - [ ] Read S-Parameter (to nparray)
     - [ ] Create S-Parameter (form skrf.touchstone)
 - [ ] Create notebook to run though and test module
-- [ ] 
+- [ ]
