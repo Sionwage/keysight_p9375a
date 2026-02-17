@@ -121,6 +121,33 @@ class KeysightP9375A_Channels(Channel):
         cast=bool,
     )
 
+    start_frequency = Instrument.control(
+        "SENS{ch}:FREQ:STAR?",
+        "SENS{ch}:FREQ:STAR %d",
+        """
+        Starting frequency of the VNA sweep in Hz (float).
+        """,
+        cast=float,
+    )
+
+    stop_frequency = Instrument.control(
+        "SENS{ch}:FREQ:STOP?",
+        "SENS{ch}:FREQ:STOP %d",
+        """
+        Stopping frequency of the VNA sweep in Hz (float).
+        """,
+        cast=float,
+    )
+
+    power = Instrument.control(
+        "SOUR:POW?",
+        "SOUR:POW %d",
+        """
+        VNA output power in dBm (float).
+        """,
+        cast=float,
+    )
+
 
 class KeysightP9375A(SCPIMixin, Instrument):
     """
