@@ -29,6 +29,7 @@ Todo List
     - [ ] Stop Freq
     - [ ] Read S-Parameter (to nparray)
     - [ ] Create S-Parameter (form skrf.touchstone)
-- [ ] Create notebook to run though and test module
+- [x] Create notebook to run though and test module
+- [x] Working example for saving s1p/s2p touchstone files.
 - [ ] Add traces class to Instrument
 - [ ] Create function to add or remove channels and traces
