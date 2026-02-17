@@ -21,12 +21,14 @@ Todo List
     - [x] Averaging
     - [x] Averaging Enabled
     - [ ] Averaging Mode - Need docstring updated w/ options
-    - [ ] Triggering
+    - [ ] Triggering Mode
+    - [ ] Continuous Triggering
     - [ ] Measurement
     - [ ] Format
-    - [ ] Power
-    - [ ] Start Freq
-    - [ ] Stop Freq
+    - [x] Power
+    - [x] Start Freq
+    - [x] Stop Freq
+    - [ ] Read Trace
     - [ ] Read S-Parameter (to nparray)
     - [ ] Create S-Parameter (form skrf.touchstone)
 - [x] Create notebook to run though and test module
