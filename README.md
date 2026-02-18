@@ -20,9 +20,9 @@ Todo List
     - [x] Points
     - [x] Averaging
     - [x] Averaging Enabled
-    - [ ] Averaging Mode - Need docstring updated w/ options
-    - [ ] Triggering Mode
-    - [ ] Continuous Triggering
+    - [x] Averaging Mode - Need docstring updated w/ options
+    - [x] Triggering Mode
+    - [x] Continuous Triggering
     - [ ] Measurement
     - [ ] Format
     - [x] Power
