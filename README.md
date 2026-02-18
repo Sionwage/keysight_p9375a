@@ -11,6 +11,7 @@ Todo List
 - [x] Create P9375A boilerplate
 - [x] Create Channels class
 - [ ] Create Traces class ?
+- [ ] Create Window class
 - [x] Create uv project
 - [x] Create venv `uv venv .venv`
 - [x] Add pyvisa, pyvisa-py, pymeasure, ipykernel to uv project `uv add pyvisa pyvisa-py numpy scikit-rf pymeasure ipykernel`
@@ -28,10 +29,14 @@ Todo List
     - [x] Power
     - [x] Start Freq
     - [x] Stop Freq
+    - [ ] Corrections enabled
     - [ ] Read Trace
     - [ ] Read S-Parameter (to nparray)
     - [ ] Create S-Parameter (form skrf.touchstone)
+    - [x] Save S-Parameter to file
 - [x] Create notebook to run though and test module
 - [x] Working example for saving s1p/s2p touchstone files.
 - [ ] Add traces class to Instrument
 - [ ] Create function to add or remove channels and traces
+- [ ] Add window class to Instrument
+- [ ]

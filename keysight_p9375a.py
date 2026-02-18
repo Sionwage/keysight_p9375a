@@ -49,7 +49,7 @@ class KeysightP9375A_Channels(Channel):
     # Get / Set IFBW
     IFBW = Instrument.control(
         "SENS{ch}:BAND?",
-        "SENS{ch}:BAND %d",
+        "SENS{ch}:BAND %g",
         """
         Number of frequency points measured per sweep (int).
         """,
@@ -97,9 +97,9 @@ class KeysightP9375A_Channels(Channel):
     # SENSe<cnum>:SWEep:DWELl <num>
     dwell_time = Instrument.control(
         "SENS{ch}:SWE:DWELL?",
-        "SENS{ch}:SWE:DWELL %d",
+        "SENS{ch}:SWE:DWELL %g",
         """
-        Dwell time per point measurement (float).
+        Control the dwell time per point measurement in seconds (float).
         """,
         cast=float,
     )
@@ -121,7 +121,7 @@ class KeysightP9375A_Channels(Channel):
 
     start_frequency = Instrument.control(
         "SENS{ch}:FREQ:STAR?",
-        "SENS{ch}:FREQ:STAR %d",
+        "SENS{ch}:FREQ:STAR %g",
         """
         Starting frequency of the VNA sweep in Hz (float).
         """,
@@ -130,7 +130,7 @@ class KeysightP9375A_Channels(Channel):
 
     stop_frequency = Instrument.control(
         "SENS{ch}:FREQ:STOP?",
-        "SENS{ch}:FREQ:STOP %d",
+        "SENS{ch}:FREQ:STOP %g",
         """
         Stopping frequency of the VNA sweep in Hz (float).
         """,
@@ -139,7 +139,7 @@ class KeysightP9375A_Channels(Channel):
 
     power = Instrument.control(
         "SOUR:POW?",
-        "SOUR:POW %d",
+        "SOUR:POW %g",
         """
         VNA output power in dBm (float).
         """,
@@ -161,7 +161,7 @@ class KeysightP9375A_Channels(Channel):
         """,
     )
 
-    trigger_continously = Instrument.control(
+    trigger_continuously = Instrument.control(
         "INIT:CONT?",
         "INIT:CONT %d",
         """
@@ -280,6 +280,5 @@ class KeysightP9375A(SCPIMixin, Instrument):
 
     def __init__(self, adapter, name="VNA", **kwargs):
         super().__init__(adapter, name, **kwargs)
-        self.reset()
 
     channels = Instrument.MultiChannelCreator(KeysightP9375A_Channels, [1])
